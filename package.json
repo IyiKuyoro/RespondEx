@@ -9,10 +9,15 @@
     "README.md"
   ],
   "scripts": {
-    "prepublish": "npm run clean && mkdir dist && babel src -s -d dist",
     "clean": "rm -rf dist",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint --fix ./src",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "npm run clean && mkdir dist && babel src -d dist --ignore src/**/__tests__/*.js,src/**/__mocks__/*.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IyiKuyoro/RespondEx.git"
   },
   "author": "Opeoluwa Iyi-Kuyoro",
   "license": "ISC",
@@ -21,10 +26,12 @@
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "commitplease": "^3.2.0",
+    "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.17.2",
-    "jest": "^24.7.1"
+    "jest": "^24.7.1",
+    "nyc": "^14.0.0"
   },
   "dependencies": {},
   "commitplease": {

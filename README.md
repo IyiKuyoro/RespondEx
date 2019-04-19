@@ -1,4 +1,4 @@
-# RespondEx
+# RespondEx [![Build Status](https://travis-ci.org/IyiKuyoro/RespondEx.svg?branch=develop)](https://travis-ci.org/IyiKuyoro/RespondEx) [![Coverage Status](https://coveralls.io/repos/github/IyiKuyoro/RespondEx/badge.svg?branch=develop)](https://coveralls.io/github/IyiKuyoro/RespondEx?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/aefd9dedd80b68dd6212/maintainability)](https://codeclimate.com/github/IyiKuyoro/RespondEx/maintainability)
 
 This is a simple node package that helps developers package HTTP responses into simple reusable methods, without having to worry about setting the headers and the right status codes.
 
@@ -33,13 +33,14 @@ RespondEx.createdResource(
 ## Documentation
 ### Methods
 **createdResource**: Sends a HTTP response for a newly created resource. Response will contain a 201 status code, message and data in the body. It would also contain the URL to the newly created resource in the header of the response.
-| Parameters | Type   | Description                              | Example                         |
-|------------|--------|------------------------------------------|-------------------------------------|
+
+| Parameters | Type   | Description                              | Example                                       |
+|------------|--------|------------------------------------------|-----------------------------------------------|
 | message    | string | The message to be sent with the response | "Product successfully created."               |
-| data       | object | Newly created resource data              | { name: "Chair" }                                    |
+| data       | object | Newly created resource data              | { name: "Chair" }                             |
 | location   | string | The URL of the newly created resource    | "https://fakeecommerce.com/api/v1/products/1" |
-| res        | object | The express http response object         |                                                      |
-| options    | object | Some extra headers                       | { contentType: "application/json" }                 |
+| res        | object | The express http response object         |                                               |
+| options    | object | Some extra headers                       | { contentType: "application/json" }           |
 
 ### Options
 This is an optional parameter that can be provided to the methods to configure some of the information in the header. Currently there is just one.
