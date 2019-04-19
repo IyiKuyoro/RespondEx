@@ -1,6 +1,6 @@
 {
-  "name": "respondex",
-  "version": "0.0.5",
+  "name": "@respondex/core",
+  "version": "0.0.1",
   "description": "A package to handle express HTTP responses",
   "main": "./dist/index.js",
   "files": [
@@ -12,8 +12,8 @@
     "clean": "rm -rf dist",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint --fix ./src",
-    "prepublish": "npm run clean && mkdir dist && babel src -d dist --ignore src/**/__tests__/*.js,src/**/__mocks__/*.js",
-    "test": "jest"
+    "prepare": "npm run clean && mkdir dist && babel src -d dist --ignore src/**/__tests__/*.js,src/**/__mocks__/*.js",
+    "test": "npm run lint && jest"
   },
   "repository": {
     "type": "git",
@@ -33,7 +33,9 @@
     "jest": "^24.7.1",
     "nyc": "^14.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@respondex/apierror": "0.0.1"
+  },
   "commitplease": {
     "style": "angular",
     "types": [
@@ -47,5 +49,9 @@
       "chore"
     ],
     "scope": "\\S+.*"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/IyiKuyoro/RespondEx/issues"
+  },
+  "homepage": "https://github.com/IyiKuyoro/RespondEx#readme"
 }
