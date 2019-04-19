@@ -1,1 +1,0 @@
-{"version":3,"sources":["../src/index.js"],"names":["RespondEx","createResourceSuccess"],"mappings":";;;;;;;AAAe,MAAMA,SAAN,CAAgB;AAC7B,SAAOC,qBAAP,GAA+B;AAC7B,WAAO,aAAP;AACD;;AAH4B","sourcesContent":["export default class RespondEx {\n  static createResourceSuccess() {\n    return 'Hello World';\n  }\n}\n"],"file":"index.js"}
