@@ -1,5 +1,5 @@
 node_modules
 .vscode
 dist
-coverage
-.nyc_outputs
+.nyc_output
+respondex-[0-9]*.tgz
