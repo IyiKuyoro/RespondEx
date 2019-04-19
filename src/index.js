@@ -12,7 +12,7 @@ export default class RespondEx {
       'content-type': options.contentType || 'application/json',
       url: location,
     });
-    res.status(200).json({
+    res.status(201).json({
       success: true,
       message,
       data,
