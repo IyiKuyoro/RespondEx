@@ -2,4 +2,4 @@ node_modules
 .vscode
 dist
 .nyc_output
-respondex-[0-9]*.tgz
+respondex-core-[0-9]*.tgz
