@@ -1,6 +1,6 @@
 {
   "name": "@respondex/core",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A package to handle express HTTP responses",
   "main": "./dist/index.js",
   "files": [
@@ -46,7 +46,8 @@
       "refactor",
       "perf",
       "test",
-      "chore"
+      "chore",
+      "release"
     ],
     "scope": "\\S+.*"
   },

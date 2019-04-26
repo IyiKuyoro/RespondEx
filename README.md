@@ -23,7 +23,7 @@ RespondEx.createdResource(
   {
     name: 'Chair',
     quantity: 100,
-    description: 'A comfortable seat for your afternoon tea.'
+    description: 'A comfortable seat for your afternoon tea.',
   },
   'https://fakeecommerce.com/api/v1/products/1',
   res,
@@ -153,7 +153,7 @@ This is the list of error types
 _Opeoluwa Iyi-Kuyoro_: 👨🏿[Profile](https://github.com/IyiKuyoro) - [WebSite](https://iyikuyoro.com)
 
 ### Contributions
-I am very open to contributions from the community. If you find this package useful, and you feel there are a rew things you would like to add or nasty bugs that you just want to get rid of, please feel free to fork, modify and raise a PR.
+This project is very open to contributions from the community. If you find this package useful, and you feel there are a new things you would like to add or nasty bugs that you just want to get rid of, please feel free to fork, modify and raise a PR.
 
 In doing so, I would like you to follow the conventions.
 
