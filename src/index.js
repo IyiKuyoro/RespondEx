@@ -2,6 +2,40 @@ import ApiError from '@respondex/apierror';
 
 export default class RespondEx {
   /**
+   * @description Send a success response with some data.
+   * @param  {string} message The message of the response
+   * @param  {object} data The data to be sent
+   * @param  {object} res The express response object
+   * @param  {object} options={} Object containing options
+   */
+  static successWithData(message, data, res, options = {}) {
+    res.set({
+      'content-type': options.contentType || 'application/json',
+    });
+    res.status(200).json({
+      success: true,
+      message,
+      data,
+    });
+  }
+
+  /**
+   * @description Send a success response without some data.
+   * @param  {string} message The message of the response
+   * @param  {object} res The express response object
+   * @param  {object} options={} Object containing options
+   */
+  static successWithoutData(message, res, options = {}) {
+    res.set({
+      'content-type': options.contentType || 'application/json',
+    });
+    res.status(200).json({
+      success: true,
+      message,
+    });
+  }
+
+  /**
    * @description Send a success response for a created resource.
    * @param  {string} message The message of the response
    * @param  {object} data The data to be sent

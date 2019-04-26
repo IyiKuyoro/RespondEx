@@ -3,7 +3,7 @@ import ApiError from '@respondex/apierror';
 import ResMock from '../__mocks__/ResMock';
 
 describe('RespondEx', () => {
-  describe('createdResource', () => {
+  describe('createdResource()', () => {
     let res;
     let statusSpy;
     let jsonSpy;
@@ -63,7 +63,106 @@ describe('RespondEx', () => {
     });
   });
 
-  describe('error', () => {
+  describe('successWithData()', () => {
+    let res;
+    let statusSpy;
+    let jsonSpy;
+    let setSpy;
+
+    beforeEach(() => {
+      res = new ResMock();
+      statusSpy = jest.spyOn(res, 'status');
+      jsonSpy = jest.spyOn(res, 'json');
+      setSpy = jest.spyOn(res, 'set');
+    });
+
+    afterEach(() => {
+      jest.resetAllMocks();
+    });
+
+    it('should set the response type to application/json', () => {
+      RespondEx.successWithData(
+        'Success message',
+        {
+          name: 'Chair',
+          number: 100,
+          description: 'A comfortable chair for your afternoon tea',
+        },
+        res,
+      );
+
+      expect(setSpy).toHaveBeenCalledWith({
+        'content-type': 'application/json',
+      });
+    });
+
+    it('should set response data and code properly', () => {
+      RespondEx.successWithData(
+        'Success message',
+        {
+          name: 'Chair',
+          number: 100,
+          description: 'A comfortable chair for your afternoon tea',
+        },
+        res,
+      );
+
+      expect(statusSpy).toHaveBeenCalledWith(200);
+      expect(jsonSpy).toHaveBeenCalledWith({
+        success: true,
+        message: 'Success message',
+        data: {
+          name: 'Chair',
+          number: 100,
+          description: 'A comfortable chair for your afternoon tea',
+        },
+      });
+    });
+  });
+
+  describe('successWithoutData()', () => {
+    let res;
+    let statusSpy;
+    let jsonSpy;
+    let setSpy;
+
+    beforeEach(() => {
+      res = new ResMock();
+      statusSpy = jest.spyOn(res, 'status');
+      jsonSpy = jest.spyOn(res, 'json');
+      setSpy = jest.spyOn(res, 'set');
+    });
+
+    afterEach(() => {
+      jest.resetAllMocks();
+    });
+
+    it('should set the response type to application/json', () => {
+      RespondEx.successWithoutData(
+        'Success message',
+        res,
+      );
+
+      expect(setSpy).toHaveBeenCalledWith({
+        'content-type': 'application/json',
+      });
+    });
+
+    it('should set response data and code properly', () => {
+      RespondEx.successWithoutData(
+        'Success message',
+        res,
+      );
+
+      expect(statusSpy).toHaveBeenCalledWith(200);
+      expect(jsonSpy).toHaveBeenCalledWith({
+        success: true,
+        message: 'Success message',
+      });
+    });
+  });
+
+  describe('error()', () => {
     let res;
     let statusSpy;
     let jsonSpy;
