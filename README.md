@@ -56,6 +56,44 @@ RespondEx.createdResource(
 );
 ```
 
+**successWithData**: Sends a HTTP response for a successful request with some returned data. Response will contain a 200 status code, message and data in the body.
+
+| Parameters             | Type   | Description                              | Example                                       |
+|------------------------|--------|------------------------------------------|-----------------------------------------------|
+| message                | string | The message to be sent with the response | "Product successfully created."               |
+| data                   | object | Newly created resource data              | { name: "Chair" }                             |
+| res                    | object | The express http response object         |                                               |
+| options (_optional_)   | object | Some extra headers                       | { contentType: "application/json" }           |
+
+#### Example
+```
+RespondEx.successWithData(
+  'Successful sign-in',
+  {
+    name: 'Chair',
+    quantity: 100,
+    description: 'A comfortable seat for your afternoon tea.'
+  },
+  res,
+);
+```
+
+**successWithoutData**: Sends a HTTP response for a successful request without an data. Response will contain a 200 status code and message body.
+
+| Parameters             | Type   | Description                              | Example                                       |
+|------------------------|--------|------------------------------------------|-----------------------------------------------|
+| message                | string | The message to be sent with the response | "Product successfully created."               |
+| res                    | object | The express http response object         |                                               |
+| options (_optional_)   | object | Some extra headers                       | { contentType: "application/json" }           |
+
+#### Example
+```
+RespondEx.successWithData(
+  'Successful sign-in',
+  res,
+);
+```
+
 **error**: Sends a HTTP response error using an instance of the APIError class.
 
 | Parameter             | Type     | Description                              | Example                                       |
