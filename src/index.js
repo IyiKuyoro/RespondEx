@@ -65,11 +65,15 @@ export default class RespondEx {
     res.set({
       'content-type': options.contentType || 'application/json',
     });
-    res.status(error.code).json({
-      success: false,
-      message: error.message,
-      possibleCauses: error.possibleCauses || [],
-    });
+    if (error.code) {
+      res.status(error.code).json({
+        success: false,
+        message: error.message,
+        possibleCauses: error.possibleCauses || [],
+      });
+    } else {
+      RespondEx.errorByType('ServerError', res);
+    }
   }
 
   /**
