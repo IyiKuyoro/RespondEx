@@ -214,6 +214,21 @@ describe('RespondEx', () => {
         possibleCauses: [],
       });
     });
+
+    it('should set the status code to 500 with custom possible cases', () => {
+      const error = new Error('Some error');
+
+      RespondEx.error(error, res);
+
+      expect(statusSpy).toHaveBeenCalledWith(500);
+      expect(jsonSpy).toHaveBeenCalledWith({
+        success: false,
+        message: 'A server error has occurred! Please contact the administrator',
+        possibleCauses: [
+          'This error is caused by a malfunction in this application',
+        ],
+      });
+    });
   });
 
   describe('errorByType', () => {
