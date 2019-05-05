@@ -94,7 +94,7 @@ RespondEx.successWithData(
 );
 ```
 
-**error**: Sends a HTTP response error using an instance of the APIError class.
+**error**: Sends a HTTP response error using an instance of the APIError class. This method will also handle unforseen server errors that occur at runtime.
 
 | Parameter             | Type     | Description                              | Example                                       |
 |------------------------|----------|------------------------------------------|-----------------------------------------------|
@@ -102,11 +102,19 @@ RespondEx.successWithData(
 | res                    | object   | The express http response object         |                                               |
 | options (_optional_)   | object   | Some extra headers                       | { contentType: "application/json" }           |
 
-#### Example
+#### Examples
 ```
 import APIError from "@respondex/apierror"
 
 const error = new APIError(...);
+RespondEx.error(
+  error,
+  res,
+);
+```
+The below example would cause a 500 server error response.
+```
+const error = new Error(...);
 RespondEx.error(
   error,
   res,
