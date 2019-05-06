@@ -56,6 +56,22 @@ export default class RespondEx {
   }
 
   /**
+   * @description Send a success response without content.
+   * @param  {string} message The message of the response
+   * @param  {object} res The express response object
+   * @param  {object} options={} Object containing options
+   */
+  static noContent(message, res, options = {}) {
+    res.set({
+      'content-type': options.contentType || 'application/json',
+    });
+    res.status(204).json({
+      success: true,
+      message,
+    });
+  }
+
+  /**
    * @description Send error response to the serve
    * @param  {object} error The APIError object of the error that occurred
    * @param  {object} res The express response object

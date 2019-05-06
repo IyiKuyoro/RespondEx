@@ -162,6 +162,48 @@ describe('RespondEx', () => {
     });
   });
 
+  describe('noContent()', () => {
+    let res;
+    let statusSpy;
+    let jsonSpy;
+    let setSpy;
+
+    beforeEach(() => {
+      res = new ResMock();
+      statusSpy = jest.spyOn(res, 'status');
+      jsonSpy = jest.spyOn(res, 'json');
+      setSpy = jest.spyOn(res, 'set');
+    });
+
+    afterEach(() => {
+      jest.resetAllMocks();
+    });
+
+    it('should set the response type to application/json', () => {
+      RespondEx.noContent(
+        'Success message',
+        res,
+      );
+
+      expect(setSpy).toHaveBeenCalledWith({
+        'content-type': 'application/json',
+      });
+    });
+
+    it('should set response data and code properly', () => {
+      RespondEx.noContent(
+        'Success message',
+        res,
+      );
+
+      expect(statusSpy).toHaveBeenCalledWith(204);
+      expect(jsonSpy).toHaveBeenCalledWith({
+        success: true,
+        message: 'Success message',
+      });
+    });
+  });
+
   describe('error()', () => {
     let res;
     let statusSpy;
